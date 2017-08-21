@@ -1,9 +1,24 @@
+<!DOCTYPE html>
+
 <html>
 <title> Practice </title>
 <head><head>
 
 <body>
-<h1> Hi </h1>
+<h1><center> Hi </center></h1>
+<center>
 
+<script type="text/javascript">
+<!--
+//document.write is used to write onto the screen.
+  document.write("Hello World");
+  var x = 42;
+  var howdy ="The number is:";
+  //To make a variable, we say var, followed by name. We do not happen to initialize as string, or int
+  //the browser can make an educated guess at determine what data type it is
+  document.write(howdy+x);
+  //-->
+  </script>
+</center>
 </body>
 </html>
