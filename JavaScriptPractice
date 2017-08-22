@@ -6,6 +6,7 @@
 
 <body>
 <h1><center> Hi </center></h1>
+
 <center>
 
 <script type="text/javascript">
@@ -17,8 +18,29 @@
   //To make a variable, we say var, followed by name. We do not happen to initialize as string, or int
   //the browser can make an educated guess at determine what data type it is
   document.write(howdy+x);
-  //-->
+  //Now we are playing with functions
+  function testFunction(){
+    alert("Howdy this is a test function box");
+  }
+
+  function inputFunction(y){
+    alert("This is a test function: "+y);
+  }
+inputFunction("Alligator");
+
+function twoArgumentFunction(one,two){
+  alert(one+" Is the first argument "+"<br>"+two+" Is the second argument");
+}
+
+  //-->s
   </script>
+  <!--Just a simple button to call our function-->
+  <form>
+    <input type="button" value="Click Here!" onclick="testFunction()">
+    <input type="button" value="Or Click Here!" onclick="twoArgumentFunction("apple","orange")">
+
+  </form>
+
 </center>
 </body>
 </html>
