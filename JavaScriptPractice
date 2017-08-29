@@ -14,7 +14,7 @@
 //document.write is used to write onto the screen.
   document.write("Hello World");
   var x = 42;
-  var howdy ="The number is:";
+  var howdy ="<br>The number is:";
   //To make a variable, we say var, followed by name. We do not have initialize as string, or int
   //the browser can make an educated guess and determine what data type it is
   document.write(howdy+x);
@@ -42,6 +42,31 @@
     return "A = 3, B = 5<br>A+B = "+ c;
   }
 
+  function doFirst(){
+    document.write("<br>This function is going first");
+  }
+
+  function doSecond(){
+    document.write("<br>This function is going second");
+  }
+
+  function startDO(){
+    doFirst();
+    doSecond();
+  }
+
+  function iffy(){
+    var lowValue = 12;
+    var highValue = 21;
+    if (lowValue < highValue){
+      document.write("<br>High Value "+highValue+"<br>Is higher than "+lowValue);
+    }
+    else {
+      document.write("<br>Number is not high enough");
+    }
+  }
+  iffy();
+  startDO();
   //-->
   </script>
   <!--Just a simple button to call our function-->
