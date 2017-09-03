@@ -55,6 +55,32 @@
     doSecond();
   }
 
+
+  var switches = "switchTest";
+  switch(switches){ //<-- "switches" is our input, if you change that then it changes the output
+    case "switchTest": document.write("</br>Hey this is a switch test!");
+    break;
+    case "anotherTest": document.write("</br>This is another switch statement");
+    break;
+    default:
+    document.write("this is the switch default");
+  }
+
+  for(x=1;x<=5;x++){
+    document.write("</br>This is a for loop, current loop: "+x);
+  }
+
+var x = 1
+  while(x <= 5){
+    document.write("</br>This is a while loop, current loop: "+x);
+    x++
+  }
+var x = 1 //Re-setting our previous x value back to 1 
+do{
+  document.write("</br>This is a do-while loop, current loop: "+x);
+  x++
+}while(x<=5);
+
   function iffy(){
     var lowValue = 12;
     var highValue = 21;
