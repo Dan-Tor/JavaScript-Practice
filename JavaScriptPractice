@@ -2,9 +2,21 @@
 
 <html>
 <title> Practice </title>
-<head><head>
-
-<body>
+<head>
+  <!--So now we are making our objects,which are built in the head-->
+  <script type="text/javascript">
+  function person(name,age)
+  {
+    this.name = name;
+    this.age = age;
+  }
+  //We've made two objects with a name and age
+  var daniel = new person("Daniel",25);
+  var ashley = new person("Ashley Test", 23);
+  </script>
+</head>
+<!--this is an onLoad script-->
+<body onLoad="alert('The site has finished loading');">
 <h1><center> Hi </center></h1>
 
 <center>
@@ -27,21 +39,24 @@
     alert("This is a test function: "+y);
   }
   inputFunction("Alligator");
-
+//Double argument functions
   function twoArgumentFunction(one,two){
   alert(one+" Is the first argument "+two+" Is the second argument");
 }
+//We are filling up the slots from our arguments
   twoArgumentFunction("Apple","Orange");
-
+//Learning about return functions
   function functionReturn(){
     return "<br>Hey this is being returned from a function";
   }
 
+//Simple math operators, +(Addition),/(Division),-(Subtraction),*(Multiplication),%(Modulo)
   function additionFunction(a,b){
     var c = a+b;
     return "A = 3, B = 5<br>A+B = "+ c;
   }
 
+//Inner functions as in functions inside functions
   function doFirst(){
     document.write("<br>This function is going first");
   }
@@ -49,13 +64,13 @@
   function doSecond(){
     document.write("<br>This function is going second");
   }
-
+//this function holds another two functions so you call it once properly
   function startDO(){
     doFirst();
     doSecond();
   }
 
-
+//Learning about simple switches
   var switches = "switchTest";
   switch(switches){ //<-- "switches" is our input, if you change that then it changes the output
     case "switchTest": document.write("</br>Hey this is a switch test!");
@@ -75,11 +90,18 @@ var x = 1
     document.write("</br>This is a while loop, current loop: "+x);
     x++
   }
-var x = 1 //Re-setting our previous x value back to 1 
+var x = 1 //Re-setting our previous x value back to 1
 do{
   document.write("</br>This is a do-while loop, current loop: "+x);
   x++
 }while(x<=5);
+
+
+
+
+  var stringy = "Hey this is a really long string, how long?"
+  document.write("</br>Our string is: "+stringy.length+" words long");
+  //-->
 
   function iffy(){
     var lowValue = 12;
@@ -91,9 +113,27 @@ do{
       document.write("<br>Number is not high enough");
     }
   }
+
+
+function callDan(){
+  document.write("<br>My name is "+daniel.name+" and I am "+daniel.age+" years old");
+}
+
+function callAsh(){
+  document.write("<br>My name is "+ashley.name+" and I am "+ashley.age+" years old");
+}
+
+function callEveryone(){
+  callAsh();
+  callDan();
+}
+
+
   iffy();
   startDO();
-  //-->
+  callEveryone();
+
+
   </script>
   <!--Just a simple button to call our function-->
   <form>
@@ -103,6 +143,13 @@ do{
     <input type="button" value="How about this one!" onclick=document.write(functionReturn())>
     <input type="button" value="Check out this addition" onclick=document.write(additionFunction(3,5))>
   </form>
+<!--Just making a second row for buttons-->
+  <form>
+      <input type="button" value="Hey this is an event handler" onclick="alert('!!!');alert('Another !!!');">
+  </form>
+
+  <a href="google.com" onMouseOver="alert('Hey you rolled over the link!');"> Hover over this! </a>
+  
 
 </center>
 </body>
