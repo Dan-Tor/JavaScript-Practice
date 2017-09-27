@@ -4,5 +4,52 @@
 </head>
 <body>
 <center><h1>Hello World</h1></center>
+<h2>
+  <!--This is the news ticker portion-->
+  <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();" vrspace="5%" hspace="5%" style="margin-left: 5%; margin-right: 5%;">
+    <span id="myText"></span>
+  </marquee>
+    <!--This is the end of the news ticker portion-->
+</h2>
+<!--This is the API section for the scroll portion-->
+<script type="text/javascript">
+  // var payload;
+
+                      $(function() {
+                          var params = {
+                              // Request parameters
+                              "q": "earthquake+North Korea+Hurricane+Nuclear+Flood+Forest Fire",
+                              "count": "20",
+                              "offset": "0",
+                              "mkt": "en-us",
+                              "safeSearch": "Moderate",
+                          };
+
+                          $.ajax({
+                              url: "https://api.cognitive.microsoft.com/bing/v5.0/news/search?" + $.param(params),
+                              beforeSend: function(xhrObj){
+                                  // Request headers
+                                  xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","0c180234f76e45e3b1f44f5ae769e2c8");
+                              },
+                              type: "GET",
+                              // Request body
+                              data: "{body}",
+                          })
+                          .done(function(data) {
+                              //alert("success");
+                              //console.log(data);
+                              var text_news="";
+                              for (var i=0;i<10;i++) {
+                                  text_news += data.value[i].name + "&nbsp;&nbsp; | &nbsp;&nbsp;";
+                                  //document.write(text_news); //document.write("<br>");
+                              }
+                              //console.log(text_news);
+                              document.getElementById("myText").innerHTML = text_news;
+                          })
+                          .fail(function() {
+                              alert("error");
+                          });
+                      });
+</script>
 </body>
 </html>
