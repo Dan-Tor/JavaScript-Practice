@@ -9,6 +9,15 @@
   <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();" vrspace="5%" hspace="5%" style="margin-left: 5%; margin-right: 5%;">
     <span id="myText"></span>
   </marquee>
+  <marquee behavior="scroll" direction="right" onmouseover="this.stop();" onmouseout="this.start();" vrspace="5%" hspace="5%" style="margin-left: 5%; margin-right: 5%;">
+    <span id="my2Text"></span>
+  </marquee>
+  <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();" vrspace="5%" hspace="5%" style="margin-left: 5%; margin-right: 5%;">
+    <span id="my3Text"></span>
+  </marquee>
+  <marquee behavior="scroll" direction="right" onmouseover="this.stop();" onmouseout="this.start();" vrspace="5%" hspace="5%" style="margin-left: 5%; margin-right: 5%;">
+    <span id="my4Text"></span>
+  </marquee>
 </h2>
 
 <script type="text/javascript">
@@ -34,6 +43,8 @@
                               // Request body
                               data: "{body}",
                           })
+
+
                           .done(function(data) {
                               //alert("success");
                               //console.log(data);
@@ -44,11 +55,53 @@
                               }
                               //console.log(text_news);
                               document.getElementById("myText").innerHTML = text_news;
+                              document.getElementById("my2Text").innerHTML = text_news;
                           })
                           .fail(function() {
                               alert("error");
                           });
                       });
+
+                      $(function() {
+                          var params = {
+                              // Request parameters
+                              "q": "Health+Music+Houston+Food+Drinks",
+                              "count": "20",
+                              "offset": "0",
+                              "mkt": "en-us",
+                              "safeSearch": "Moderate",
+                          };
+
+                          $.ajax({
+                              url: "https://api.cognitive.microsoft.com/bing/v5.0/news/search?" + $.param(params),
+                              beforeSend: function(xhrObj){
+                                  // Request headers
+                                  xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","0c180234f76e45e3b1f44f5ae769e2c8");
+                              },
+                              type: "GET",
+                              // Request body
+                              data: "{body}",
+                          })
+
+
+                          .done(function(data) {
+                              //alert("success");
+                              //console.log(data);
+                              var text_news="";
+                              for (var i=0;i<10;i++) {
+                                  text_news += data.value[i].name + "&nbsp;&nbsp; | &nbsp;&nbsp;";
+                                  //document.write(text_news); //document.write("<br>");
+                              }
+                              //console.log(text_news);
+                              document.getElementById("my3Text").innerHTML = text_news;
+                              document.getElementById("my4Text").innerHTML = text_news;
+                          })
+                          .fail(function() {
+                              alert("error");
+                          });
+                      });
+
+
 </script>
 </body>
 </html>
